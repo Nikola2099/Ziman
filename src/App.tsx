@@ -6,6 +6,7 @@ import { WTGs } from './pages/WTGs';
 import { TrafostanicaPage } from './pages/Trafostanica';
 import { DalekovodPage } from './pages/Dalekovod';
 import { KabloviPage } from './pages/Kablovi';
+import { ImovinaPage } from './pages/Imovina';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="trafostanica" element={<TrafostanicaPage />} />
             <Route path="dalekovod" element={<DalekovodPage />} />
             <Route path="kablovi" element={<KabloviPage />} />
+            <Route path="imovina" element={<ImovinaPage />} />
           </Route>
         </Routes>
       </HashRouter>

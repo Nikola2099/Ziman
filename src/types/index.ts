@@ -72,9 +72,45 @@ export interface Kabel {
   notes: string;
 }
 
+export type ImovinaStatus =
+  | 'nije_kontaktirano'
+  | 'u_pregovorima'
+  | 'usmeno'
+  | 'ugovoreno'
+  | 'overeno'
+  | 'odbijeno';
+
+export const IMOVINA_STATUS_LABELS: Record<ImovinaStatus, string> = {
+  nije_kontaktirano: 'Nije kontaktirano',
+  u_pregovorima:     'U pregovorima',
+  usmeno:            'Usmeno dogovoreno',
+  ugovoreno:         'Ugovoreno',
+  overeno:           'Overeno',
+  odbijeno:          'Odbijeno',
+};
+
+export interface Parcela {
+  id: string;
+  turbina: string;              // e.g. "Z-WTG-04"
+  parcela_broj: string;
+  povrsina_parcele: number;     // m²
+  vrsta_zemljista: string;
+  katastarska_opstina: string;
+  kultura: string;
+  vlasnik: string;
+  povrsina_zauzeca: number;     // m²
+  opcija1_jednokratno: number;  // EUR
+  opcija1_godisnje: number;     // EUR
+  komentar: string;
+  status: ImovinaStatus;
+  naredni_koraci: string;       // free text, may contain numbered list
+  rokovi: string;               // free text, may contain multiple dates
+}
+
 export interface AssetStore {
   wtgs: WTG[];
   trafostanice: Trafostanica[];
   dalekovodi: Dalekovod[];
   kablovi: Kabel[];
+  parcele: Parcela[];
 }

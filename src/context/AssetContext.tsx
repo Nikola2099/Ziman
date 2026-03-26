@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import type { AssetStore, WTG, Trafostanica, Dalekovod, Kabel } from '../types';
+import type { AssetStore, WTG, Trafostanica, Dalekovod, Kabel, Parcela } from '../types';
 import { initialData } from '../data/sampleData';
 
 type Action =
@@ -14,7 +14,10 @@ type Action =
   | { type: 'DELETE_DALEKOVOD'; payload: string }
   | { type: 'ADD_KABEL'; payload: Kabel }
   | { type: 'UPDATE_KABEL'; payload: Kabel }
-  | { type: 'DELETE_KABEL'; payload: string };
+  | { type: 'DELETE_KABEL'; payload: string }
+  | { type: 'ADD_PARCELA'; payload: Parcela }
+  | { type: 'UPDATE_PARCELA'; payload: Parcela }
+  | { type: 'DELETE_PARCELA'; payload: string };
 
 function reducer(state: AssetStore, action: Action): AssetStore {
   switch (action.type) {
@@ -45,6 +48,13 @@ function reducer(state: AssetStore, action: Action): AssetStore {
       return { ...state, kablovi: state.kablovi.map(k => k.id === action.payload.id ? action.payload : k) };
     case 'DELETE_KABEL':
       return { ...state, kablovi: state.kablovi.filter(k => k.id !== action.payload) };
+
+    case 'ADD_PARCELA':
+      return { ...state, parcele: [...state.parcele, action.payload] };
+    case 'UPDATE_PARCELA':
+      return { ...state, parcele: state.parcele.map(p => p.id === action.payload.id ? action.payload : p) };
+    case 'DELETE_PARCELA':
+      return { ...state, parcele: state.parcele.filter(p => p.id !== action.payload) };
 
     default:
       return state;

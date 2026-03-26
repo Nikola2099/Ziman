@@ -5,14 +5,16 @@ import {
   Zap,
   TramFront,
   Cable,
+  FileText,
 } from 'lucide-react';
 
 const NAV = [
-  { to: '/',             label: 'Pregled',       icon: LayoutDashboard },
-  { to: '/wtgs',         label: 'Vetroagregati', icon: Wind },
-  { to: '/trafostanica', label: 'Trafostanica',  icon: Zap },
-  { to: '/dalekovod',    label: 'Dalekovod',     icon: TramFront },
-  { to: '/kablovi',      label: 'Kablovi',       icon: Cable },
+  { to: '/',             label: 'Pregled',           icon: LayoutDashboard },
+  { to: '/imovina',      label: 'Rešavanje imovine', icon: FileText },
+  { to: '/wtgs',         label: 'Vetroagregati',     icon: Wind },
+  { to: '/trafostanica', label: 'Trafostanica',      icon: Zap },
+  { to: '/dalekovod',    label: 'Dalekovod',         icon: TramFront },
+  { to: '/kablovi',      label: 'Kablovi',           icon: Cable },
 ];
 
 export function Sidebar() {
