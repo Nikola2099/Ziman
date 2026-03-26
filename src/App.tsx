@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AssetProvider } from './context/AssetContext';
 import { Layout } from './components/Layout';
 import { Dashboard } from './pages/Dashboard';
@@ -10,7 +10,7 @@ import { KabloviPage } from './pages/Kablovi';
 export default function App() {
   return (
     <AssetProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Dashboard />} />
@@ -20,7 +20,7 @@ export default function App() {
             <Route path="kablovi" element={<KabloviPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AssetProvider>
   );
 }
